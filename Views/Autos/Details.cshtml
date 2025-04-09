@@ -1,48 +1,42 @@
 ﻿@model IngenieriaWeb1.Models.Autos
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles del Auto";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Autos</h4>
+<div class="my-5 container">
+    <h1 class="display-5 fw-bold text-info">
+        <i class="fas fa-info-circle me-2"></i> Detalles del Auto
+    </h1>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Placa)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Placa)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Marca)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Marca)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Modelo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Modelo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Propietario)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Propietario)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Año)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Año)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.AutoId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.Placa)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Placa)</dd>
+                        <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.Marca)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Marca)</dd>
+                        <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.Modelo)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Modelo)</dd>
+                        <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.Propietario)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Propietario)</dd>
+                        <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.Año)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Año)</dd>
+                    </dl>
+
+                    <div class="d-flex justify-content-between mt-3">
+                        <a asp-action="Edit" asp-route-id="@Model?.AutoId" class="btn btn-warning">
+                            <i class="fas fa-edit me-1"></i> Editar
+                        </a>
+                        <a asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left me-1"></i> Volver
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
