@@ -2,7 +2,48 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="my-5 container text-center">
+    <!-- Encabezado principal -->
+    <h1 class="display-3 fw-bold text-primary">
+        <i class="fas fa-car me-2"></i> Bienvenido a IngenieriaWeb1
+    </h1>
+    <p class="lead text-muted mt-3">
+        Gestiona y explora tu colección de autos de manera fácil y eficiente con nuestra aplicación.
+    </p>
+
+    <!-- Información relevante -->
+    <div class="row mt-4 justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-success">
+                        <i class="fas fa-tools me-2"></i> ¿Qué puedes hacer?
+                    </h5>
+                    <p class="card-text">
+                        Registra, edita y elimina información de vehículos. Mantén un control completo de placas, marcas, modelos y propietarios.
+                    </p>
+                    <a asp-controller="Autos" asp-action="Index" class="btn btn-primary mt-3">
+                        <i class="fas fa-car-side me-1"></i> Explorar Autos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlace adicional -->
+    <p class="mt-4">
+        Aprende más sobre cómo construir aplicaciones web con
+        <a href="https://learn.microsoft.com/aspnet/core" class="text-primary fw-bold" target="_blank">ASP.NET Core</a>.
+    </p>
 </div>
+
+<style>
+    .card:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+    }
+
+    .text-primary {
+        color: #007bff !important;
+    }
+</style>

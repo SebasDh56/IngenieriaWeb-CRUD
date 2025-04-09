@@ -1,59 +1,79 @@
 ﻿@model IEnumerable<IngenieriaWeb1.Models.Autos>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista de Autos";
 }
 
-<h1>Index</h1>
+<div class="my-5 container">
+    <!-- Encabezado -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="display-5 fw-bold text-primary">
+            <i class="fas fa-car-side me-2"></i> Lista de Autos
+        </h1>
+        <a asp-action="Create" class="btn btn-success">
+            <i class="fas fa-plus me-1"></i> Crear Nuevo
+        </a>
+    </div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Placa)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Marca)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Modelo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Propietario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Año)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Placa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Marca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Modelo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Propietario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Año)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AutoId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AutoId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AutoId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <!-- Tabla -->
+    <div class="card shadow-sm">
+        <div class="card-body p-0">
+            <table class="table-hover table-bordered mb-0 table">
+                <thead class="bg-light">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Placa)</th>
+                        <th>@Html.DisplayNameFor(model => model.Marca)</th>
+                        <th>@Html.DisplayNameFor(model => model.Modelo)</th>
+                        <th>@Html.DisplayNameFor(model => model.Propietario)</th>
+                        <th>@Html.DisplayNameFor(model => model.Año)</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Any())
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Placa)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Marca)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Modelo)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Propietario)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Año)</td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.AutoId" class="btn btn-sm btn-warning">
+                                        <i class="fas fa-edit"></i> Editar
+                                    </a>
+                                    <a asp-action="Details" asp-route-id="@item.AutoId" class="btn btn-sm btn-info">
+                                        <i class="fas fa-info-circle"></i> Detalles
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.AutoId" class="btn btn-sm btn-danger">
+                                        <i class="fas fa-trash"></i> Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="6" class="text-muted py-3 text-center">
+                                <i class="fas fa-exclamation-circle me-2"></i> No hay autos registrados aún.
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<style>
+    .table-hover tbody tr:hover {
+        background-color: #f1f8ff;
+    }
+
+    .btn-sm {
+        margin-right: 5px;
+    }
+</style>
